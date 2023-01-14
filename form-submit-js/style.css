@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: url('./images/form.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0, .5);
+    min-height: 100vh;
+}
+.form-container h1 {
+    font-size: 35px;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.form-submit {
+    box-shadow: 15px 15px 30px rgb(0, 0, 0, .5);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    min-height: 30vh;
+    padding: 20px;
+    background-color: rgba(245, 241, 241, 0.5);
+}
+
+.form-submit input , button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.form-submit button {
+    background-color: teal;
+    color: #fff;
+}
+
+@media screen and (max-width: 400px){
+    .form-submit {
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 400px){
+    .form-submit {
+        width: auto;
+    }
+    
+}
+
+
+
+
+
+
+
