@@ -277,3 +277,41 @@ img {
     color: var(--bg-color);
     padding: 10px;
 }
+
+/* =================RESPONSIVE================== */
+
+@media (max-width:1080px){
+    .nav {
+        padding: 15px;
+    }
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .section {
+        padding: 3rem  0 2rem;
+    }
+
+    .shop {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 400px){
+    .nav {
+        padding: 11px;
+    }
+    .logo {
+        font-size: 1rem;
+    }
+    .cart {
+        width: 300px;
+    }
+
+    .cart-box {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}

@@ -50,9 +50,16 @@ function addEvents(){
         item.addEventListener('click', handleaddCartItem)
     })
 
+    // Buy Order
+    const buyBtn = document.querySelector('.btn-buy')
+    buyBtn.addEventListener('click', handleBuyOrder)
+
 }
 
+let itemsAdded = [];
+
 function handleaddCartItem(){
+
     let product = this.parentElement;
     let title = product.querySelector('.product-title').innerHTML;
     let price = product.querySelector('.product-price').innerHTML;
@@ -65,12 +72,39 @@ function handleaddCartItem(){
         imgSrc,
     }
 
+
+    // warning alert
+    if(itemsAdded.find((element) => element.title === newToAdd.title)){
+        alert('This item is Already Exist!')
+        return
+    }else {
+        itemsAdded.push(newToAdd);
+    }
+
+
     // add product to cart
     let cartBoxElement = CartBoxComponent(title, price, imgSrc);
     let newNode = document.createElement('div');
     newNode.innerHTML = cartBoxElement;
     const cartContent = cart.querySelector('.cart-content');
     cartContent.appendChild(newNode); 
+
+    update();
+}
+
+function handleBuyOrder(){
+    if(itemsAdded.length <= 0){
+        alert('There is No Order to Place Yet! \nPlease Make an Order first.')
+        return;
+    }
+    
+    const cartContent = cart.querySelector('.cart-content');
+    cartContent.innerHTML = '';
+    alert('You Order is Placed Successfully');
+    itemsAdded = [];
+    
+    update();
+    
 }
 
 function handleChangeItemQuantity(){
@@ -84,7 +118,11 @@ function handleChangeItemQuantity(){
 
 function handleRemoveCartItem(){
     this.parentElement.remove();
-
+    itemsAdded = itemsAdded.filter(
+      (element) => 
+        element.title !=
+        this.parentElement.querySelector('.cart-product-title').innerHTML);
+    
     update();
 }
 
