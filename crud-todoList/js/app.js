@@ -162,7 +162,7 @@ function updateTodo(id){
     updateTodoId = id
 }
 
-//OPEN:
+//OPEN modal:
 function open(){
     modal.classList.remove('hidden')
     overlay.classList.remove('hidden')
