@@ -5,15 +5,14 @@ const password = document.getElementById('password');
 const passwordCheck = document.getElementById('password-check');
 const button = document.getElementById('button');
 
-
 // form submit:
-
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     checkInputs();
 })
 
+ 
 function checkInputs() {
     const usernameValue = username.value.trim();
     const emailValue = email.value.trim();
