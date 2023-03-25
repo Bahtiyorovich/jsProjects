@@ -13,12 +13,13 @@ const secondEl = document.getElementById('second')
 const closeEl = document.getElementById('close')
 
 let updateTodoId;
-// check LocalStorage:
 
+// check LocalStorage:
 let todos = JSON.parse(localStorage.getItem('list'))
     ? JSON.parse(localStorage.getItem('list'))
     : [];
 
+// console.log(todos)
 if(todos.length) showTodos()
 
 // SET TODOS:
@@ -29,12 +30,27 @@ function setTodosItem() {
 // Time:
 function getTime() {
     const time = new Date();
-    const day = time.getDate() < 10 ? '0' + time.getDate() : time.getDate()
-    const month = time.getMonth() < 10 ? '0' + (time.getMonth() + 1) : time.getMonth()
+    const day = time.getDate() < 10 
+     ? '0' + time.getDate() 
+     : time.getDate()
+
+    const month = time.getMonth() < 10 
+     ? '0' + (time.getMonth() + 1) 
+     : time.getMonth()
+
     const year = time.getFullYear()
-    const hour = time.getHours() <= 0 ? '0'+ time.getHours() : time.getHours()
-    const minutes = time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes()
-    const seconds = time.getSeconds() < 10 ? '0' + time.getSeconds() : time.getSeconds()
+
+    const hour = time.getHours() <= 0 
+     ? '0'+ time.getHours() 
+     : time.getHours()
+
+    const minutes = time.getMinutes() < 10 
+     ? '0' + time.getMinutes() 
+     : time.getMinutes()
+
+    const seconds = time.getSeconds() < 10 
+     ? '0' + time.getSeconds() 
+     : time.getSeconds()
     
     const monthName = [
         'January',
@@ -51,13 +67,15 @@ function getTime() {
         'December',
     ]
 
-    fullDay.textContent = `${day} ${monthName[month - 1]} ${year}`
+    fullDay.textContent = 
+    `${day} ${monthName[month - 1]} ${year}`
 
     hourEl.textContent = hour
     minuteEl.textContent = minutes
     secondEl.textContent = seconds
 
-    return `${hour}:${minutes}:${seconds}, ${day}-${month} -${year}`
+    return `${hour}:${minutes}:${seconds},
+     ${day}-${month} -${year}`
 }
 
 setInterval(getTime, 1000);
